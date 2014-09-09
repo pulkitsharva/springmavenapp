@@ -5,9 +5,15 @@
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
     xmlns:p="http://www.springframework.org/schema/p"
-    xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/mvc
+    					http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        				http://www.springframework.org/schema/beans 
+        				http://www.springframework.org/schema/beans/spring-beans.xsd
+        				http://www.springframework.org/schema/context 
+        				http://www.springframework.org/schema/context/spring-context.xsd
+        				http://www.springframework.org/schema/tx
+                		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
  
     <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
      
@@ -53,8 +59,7 @@
 		p:password="${jdbc.password}" />
 	
 	
-	<beans:bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	<beans:bean id="sessionFactory"	class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="configLocation">
 			<beans:value>classpath:hibernate-cfg.xml</beans:value>
@@ -70,6 +75,11 @@
                 <beans:prop key="hibernate.jdbc.batch_size">0</beans:prop>
 			</beans:props>
 		</beans:property>
+	</beans:bean>
+	<tx:annotation-driven />
+	
+	<beans:bean id="transactionManager"	class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<beans:property name="sessionFactory" ref="sessionFactory" />
 	</beans:bean>
      
 </beans:beans>
