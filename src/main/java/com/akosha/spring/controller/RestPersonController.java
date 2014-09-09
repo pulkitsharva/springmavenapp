@@ -1,6 +1,7 @@
 package com.akosha.spring.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +26,8 @@ public class RestPersonController
 		 person.setCreatedAt(new Date().toString());
 		 System.out.println(person.getName());
 		 personService.save(person);
-		 return personService.getParticularPerson(2);
+		 List<Person> list=personService.listPerson();
+		 return list.get(list.size()-1);
 	 }
 
 // @RequestMapping(method=RequestMethod.GET)
