@@ -12,7 +12,7 @@ import com.akosha.spring.entity.Person;
 import com.akosha.spring.service.PersonService;
 
 @RestController
-@RequestMapping("/rest/emp/new")
+@RequestMapping("/api")
 public class RestPersonController 
 {
  
@@ -25,7 +25,7 @@ public class RestPersonController
 		 person.setCreatedAt(new Date().toString());
 		 System.out.println(person.getName());
 		 personService.save(person);
-		 return person;
+		 return personService.getParticularPerson(2);
 	 }
 
 // @RequestMapping(method=RequestMethod.GET)
