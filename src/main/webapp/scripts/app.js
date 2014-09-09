@@ -5,13 +5,18 @@ demoApp.controller('Controller1', function ($scope,$http) {
 	var urlBase="http://localhost:8080/SpringAngularMaven/";
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 	
-	$http.get('http://localhost:8080/SpringAngularMaven/rest/emp/dummy').
-	success(function(data) {
-        $scope.tasks = data;
-        console.log(data);
-        $scope.newUserId = data;
-        
-});
+	
+	$scope.createPerson = function createPerson() {
+		$http.get('http://localhost:8080/SpringAngularMaven/rest/emp/dummy').
+		success(function(data) {
+	        $scope.tasks = data;
+	        console.log(data);
+	        $scope.newUserId = data;
+	        
+		});
+	};
+	
+	
 //	$http.createPerson = function createPerson() {
 //		
 //		console.log("coming to function");
