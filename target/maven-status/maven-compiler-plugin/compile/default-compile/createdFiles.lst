@@ -1,1 +1,7 @@
+com\akosha\spring\entity\Person.class
+com\akosha\spring\controller\EmpRestURIConstants.class
 com\akosha\spring\controller\SpringServiceController.class
+com\akosha\spring\model\Employee.class
+com\akosha\spring\service\PersonService.class
+com\akosha\spring\dao\PersonDAO.class
+com\akosha\spring\controller\EmployeeController.class
