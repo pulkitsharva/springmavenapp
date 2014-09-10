@@ -5,6 +5,7 @@
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-resource.js"></script>
 		<script src="scripts/app.js"></script>
+		<script src="scripts/controllers.js"></script>
 	<meta charset="ISO-8859-1">
 	<title>RouteEx</title>
 	</head>
@@ -21,10 +22,10 @@
 			     New User created with name: {{newUser}}
 			  </p>
 			  <button data-ng-click="getPerson()" >Get</button>
+			  <button data-ng-click="getAllPerson()" >GetAll</button>
 			  <p data-ng-show="newUserName">
 			    User : {{newUserName}}
-			  </p>
-			   <button data-ng-click="getAllPerson()" >GetAll</button>
+			   </p>
 			   <p data-ng-show="users">
 <!-- 	this will get all user object		    User : {{users}} -->
 			  <ul>
