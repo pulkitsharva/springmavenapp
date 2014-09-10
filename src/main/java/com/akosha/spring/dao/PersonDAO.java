@@ -39,6 +39,10 @@ public class PersonDAO
 		return sessionFactory.getCurrentSession().createQuery("from Person").list();
 	}
 	
+	public List<Person> getSelectedPerson(String name)
+	{
+		return sessionFactory.getCurrentSession().createQuery("from Person where name like '%"+name+"%'").list();
+	}
 	public void save(Person person)
 	{
 		sessionFactory.getCurrentSession().save(person);

@@ -4,9 +4,11 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.akosha.spring.entity.Person;
@@ -34,6 +36,14 @@ public class RestPersonController
 	 public List<Person> getAll()
 	 {
 		 return personService.listPerson();
+	 }
+	 
+	 @RequestMapping(value = "/getSelected/{name}",method=RequestMethod.GET)
+	 public List<Person> getSelected(@PathVariable("name") String name)
+	 {
+		 System.out.println("Chete");
+		 System.out.println("See:"+name);
+		 return personService.getSelectedPerson(name);
 	 }
 
 // @RequestMapping(method=RequestMethod.GET)

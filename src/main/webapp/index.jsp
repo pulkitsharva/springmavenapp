@@ -3,7 +3,7 @@
 	<head>
 		<script src="scripts/angular.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.js"></script>
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-resource.js"></script>
+<!-- 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-resource.js"></script> -->
 		<script src="scripts/app.js"></script>
 		<script src="scripts/controllers.js"></script>
 	<meta charset="ISO-8859-1">
@@ -21,22 +21,23 @@
 			  <p data-ng-show="newUser">
 			     New User created with name: {{newUser}}
 			  </p>
+			  <input data-ng-model="searchName" />
 			  <button data-ng-click="getPerson()" >Get</button>
 			  <button data-ng-click="getAllPerson()" >GetAll</button>
 			  <p data-ng-show="newUserName">
 			    User : {{newUserName}}
 			   </p>
-			   <p data-ng-show="users">
+			   <div data-ng-show="users">
 <!-- 	this will get all user object		    User : {{users}} -->
-			  <ul>
-			    <li  data-ng-repeat="user in users | filter:q| orderBy:'name'">
-			       {{user.name}} :- {{user.createdAt}}.
-			    </li>
-			    <li data-ng-if="q.length == 0">
-			      <strong>No results found...</strong>
-			    </li>
-	 		 </ul>
-	 		 </p>
+			  
+				<table border=1 >
+				<th>Name</th>
+				<th>Created</th>
+			    <tr data-ng-repeat="user in users | filter:q| orderBy:'name'">
+			       	<td>{{user.name}}</td><td>{{user.createdAt}}</td>
+			    </tr></table>
+			    	  
+	 		 </div>
 		</div>
 		</body>
 </html>

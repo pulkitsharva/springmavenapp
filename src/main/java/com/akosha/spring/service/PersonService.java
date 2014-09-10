@@ -28,6 +28,12 @@ public class PersonService
 	}
 	
 	@Transactional
+	public List<Person> getSelectedPerson(String name)
+	{
+		return personDAO.getSelectedPerson(name);
+	}
+	
+	@Transactional
 	public void updatePersonDetails(int id, String name)
 	{
 		personDAO.updatePersonDetails(id, name);

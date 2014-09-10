@@ -7,11 +7,12 @@ personControllers.controller('Controller1', function ($scope,$http) {
 	
 	
 	$scope.getPerson = function getPerson() {
-		$http.get(urlBase+'/rest/emp/dummy').
+		console.log("data:"+$scope.searchName);
+		$http.get(urlBase+'/api/getSelected/'+$scope.searchName).
 		success(function(data) {
 	        $scope.tasks = data;
 	        console.log(data);
-	        $scope.newUserName = data.name;
+	        $scope.users = data;
 	        
 		});
 	};
@@ -36,6 +37,15 @@ personControllers.controller('Controller1', function ($scope,$http) {
 		success(function(data) {
 			console.log(data);
 	        $scope.newUser = data.name;
+	        $http.get(urlBase+'/api/getAll').
+			success(function(data) {
+		        $scope.tasks = data;
+		        console.log(data);
+		        $scope.users = data;
+		        
+			}).error(function(data, status, headers, config) {
+		        console.log('error: data = ' , data);
+		      });
 	    })
 	    .error(function(data, status, headers, config) {
 	        console.log('error: data = ' , data);
@@ -43,3 +53,5 @@ personControllers.controller('Controller1', function ($scope,$http) {
 	};
 	
 });	
+
+
