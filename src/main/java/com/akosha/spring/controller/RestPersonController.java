@@ -29,6 +29,12 @@ public class RestPersonController
 		 List<Person> list=personService.listPerson();
 		 return list.get(list.size()-1);
 	 }
+	 
+	 @RequestMapping(value = "/getAll",method=RequestMethod.GET)
+	 public List<Person> getAll()
+	 {
+		 return personService.listPerson();
+	 }
 
 // @RequestMapping(method=RequestMethod.GET)
 // public List<Hotel> list() {
